@@ -11,13 +11,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.celestial.uas2020022.R
-import com.celestial.uas2020022.model.KopiModel
+import com.celestial.uas2020022.model.AyamModel
 import kotlin.collections.ArrayList
 
-class AdapterKopi(var activity: Activity, var data: ArrayList<KopiModel>): RecyclerView.Adapter<AdapterKopi.Holder>() {
+class AdapterAyam(var activity: Activity, var data: ArrayList<AyamModel>): RecyclerView.Adapter<AdapterAyam.Holder>() {
     class Holder(view: View) : RecyclerView.ViewHolder(view) {
-        val kdayam = view.findViewById<TextView>(R.id.kdkopi)
-        val berat = view.findViewById<TextView>(R.id.nama_kopi)
+        val kdayam = view.findViewById<TextView>(R.id.kdayam)
+        val berat = view.findViewById<TextView>(R.id.berat)
         val jenis = view.findViewById<TextView>(R.id.jenis)
         val harga = view.findViewById<TextView>(R.id.harga)
         val foto = view.findViewById<ImageView>(R.id.foto)
@@ -27,15 +27,15 @@ class AdapterKopi(var activity: Activity, var data: ArrayList<KopiModel>): Recyc
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         context = parent.context
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.kopi, parent, false)
+            .inflate(R.layout.ayam, parent, false)
         return Holder(view)
     }
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val a = data[position]
-        holder.kdayam.text = a.kdkopi
-        holder.berat.text = a.nama_kopi
+        holder.kdayam.text = a.kdayam
+        holder.berat.text = a.berat
         holder.jenis.text = a.jenis
         holder.harga.text = a.harga.toString()
 
